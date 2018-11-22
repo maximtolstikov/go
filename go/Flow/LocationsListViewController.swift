@@ -1,11 +1,12 @@
 import UIKit
 
 /// Класс котроллера списка точек
-class PointListViewController: UIViewController {
+class LocationsListViewController: UIViewController {
     
     @IBOutlet weak var searchBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    weak var delegate: Connection?
     let placesSearchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -14,7 +15,7 @@ class PointListViewController: UIViewController {
     }
 }
 
-extension PointListViewController: UITableViewDataSource, UITableViewDelegate {
+extension LocationsListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
@@ -26,7 +27,7 @@ extension PointListViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension PointListViewController: UISearchResultsUpdating {
+extension LocationsListViewController: UISearchResultsUpdating {
     
     private func setupSearchBar() {
         

@@ -34,6 +34,13 @@ class MapViewController: UIViewController {
                 heightConstraint: topConstraintContainer.constant)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "containerSegue" {
+            let controller = segue.destination as? LocationsListViewController
+            controller?.delegate = self
+        }
+    }
+    
     // MARK: - Жесты
     
     @IBAction func up(_ sender: UISwipeGestureRecognizer) {
@@ -89,6 +96,14 @@ extension MapViewController {
             self.view.layoutIfNeeded()
         }, completion: nil)
         
+    }
+    
+}
+
+extension MapViewController: Connection {
+    
+    func isActiveSearchBar(state: Bool) {
+
     }
     
 }
