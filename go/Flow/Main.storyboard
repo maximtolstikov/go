@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="-316" y="58.920539730134934"/>
         </scene>
-        <!--View Controller-->
+        <!--Point List View Controller-->
         <scene sceneID="oU5-Qh-7qI">
             <objects>
-                <viewController id="Pr5-iN-0js" sceneMemberID="viewController">
+                <viewController id="Pr5-iN-0js" customClass="PointListViewController" customModule="go" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Kf-IY-nZH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,6 +97,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4pe-kS-wxI"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBarView" destination="isr-tX-0uG" id="Cbj-vO-oZB"/>
+                        <outlet property="tableView" destination="3hd-JD-PHd" id="u4l-pO-ewH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETx-Fx-tTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

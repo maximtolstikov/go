@@ -4,8 +4,8 @@ import UIKit
 /// Класс контроллера карты с контейнерВью
 class MapViewController: UIViewController {
     
-    // Высота серчБара и полоски над ним
-    let heightSearchBar: CGFloat = 56.0 + 2.0 + 4.0 + 2.0
+    // Высота серчБара
+    let heightSearchBar: CGFloat = 80
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var topConstraintContainer: NSLayoutConstraint!
@@ -34,7 +34,7 @@ class MapViewController: UIViewController {
                 heightConstraint: topConstraintContainer.constant)
     }
     
-        // MARK: - Жесты
+    // MARK: - Жесты
     
     @IBAction func up(_ sender: UISwipeGestureRecognizer) {
         
@@ -62,6 +62,7 @@ extension MapViewController {
         let height = guide.layoutFrame.maxY
         lower = height - (view.safeAreaInsets.bottom + heightSearchBar)
     }
+    
     
     // MARK: - Анимация
     
@@ -92,12 +93,13 @@ extension MapViewController {
     
 }
 
+
 // MARK: - CLLicationManager
 
-// не понятно пока
 extension MapViewController: CLLocationManagerDelegate {
     
     func setupLocationManager() {
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
