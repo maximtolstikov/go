@@ -5,8 +5,7 @@ class LocationsListViewController: UIViewController {
     
     @IBOutlet weak var searchBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
-    weak var delegate: Connection?
+
     let placesSearchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {

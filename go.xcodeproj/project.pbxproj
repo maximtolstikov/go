@@ -13,7 +13,7 @@
 		94C9E1B721A706ED00C722C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C9E1B621A706ED00C722C3 /* Main.storyboard */; };
 		94C9E1BB21A712A300C722C3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9E1BA21A712A300C722C3 /* MapViewController.swift */; };
 		94C9E1BF21A71AB200C722C3 /* LocationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9E1BE21A71AB200C722C3 /* LocationsListViewController.swift */; };
-		94C9E1C121A7242400C722C3 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9E1C021A7242400C722C3 /* Connection.swift */; };
+		94C9E1C321A72FE700C722C3 /* ContainerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9E1C221A72FE700C722C3 /* ContainerViewManager.swift */; };
 		F8362F2A7943347895A89799 /* Pods_go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4640DF1D9F35C73BC25D0770 /* Pods_go.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 		94C9E1B621A706ED00C722C3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		94C9E1BA21A712A300C722C3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		94C9E1BE21A71AB200C722C3 /* LocationsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsListViewController.swift; sourceTree = "<group>"; };
-		94C9E1C021A7242400C722C3 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		94C9E1C221A72FE700C722C3 /* ContainerViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewManager.swift; sourceTree = "<group>"; };
 		AC0E1B7DBD311D0110FB43CC /* Pods-go.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-go.release.xcconfig"; path = "Pods/Target Support Files/Pods-go/Pods-go.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +101,7 @@
 		94C9E1AF21A688DB00C722C3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				94C9E1C021A7242400C722C3 /* Connection.swift */,
+				94C9E1C221A72FE700C722C3 /* ContainerViewManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 			files = (
 				94C9E19A21A685AC00C722C3 /* AppDelegate.swift in Sources */,
 				94C9E1BB21A712A300C722C3 /* MapViewController.swift in Sources */,
+				94C9E1C321A72FE700C722C3 /* ContainerViewManager.swift in Sources */,
 				94C9E1BF21A71AB200C722C3 /* LocationsListViewController.swift in Sources */,
-				94C9E1C121A7242400C722C3 /* Connection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

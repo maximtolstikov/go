@@ -47,11 +47,13 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="containerManager" destination="0qx-YG-jXY" id="jYX-Gl-dee"/>
                         <outlet property="mapView" destination="Ebw-Xx-bqf" id="TT3-qM-PKb"/>
                         <outlet property="topConstraintContainer" destination="rGr-AF-g2b" id="V3P-1x-PYP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnV-Zc-pXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="0qx-YG-jXY" customClass="ContainerViewManager" customModule="go" customModuleProvider="target"/>
                 <swipeGestureRecognizer direction="up" id="fQN-HP-lUB">
                     <connections>
                         <action selector="up:" destination="zBI-Tc-wpj" id="ZvE-zm-xrb"/>
