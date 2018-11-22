@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="zi4-id-Tmb">
             <objects>
-                <viewController id="zBI-Tc-wpj" sceneMemberID="viewController">
+                <viewController id="zBI-Tc-wpj" customClass="MapViewController" customModule="go" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j76-Hb-QRb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,6 +29,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Ebw-Xx-bqf" firstAttribute="bottom" secondItem="PzN-yO-wfB" secondAttribute="bottom" id="Loc-Nk-abT"/>
                             <constraint firstItem="Ebw-Xx-bqf" firstAttribute="trailing" secondItem="PzN-yO-wfB" secondAttribute="trailing" id="NfV-jr-sTV"/>
@@ -40,9 +41,27 @@
                             <constraint firstItem="gjQ-yn-eaa" firstAttribute="top" secondItem="PzN-yO-wfB" secondAttribute="top" constant="40" id="rGr-AF-g2b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PzN-yO-wfB"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fQN-HP-lUB" appends="YES" id="zOw-EE-YZL"/>
+                            <outletCollection property="gestureRecognizers" destination="MXP-s1-qmX" appends="YES" id="beY-dn-4Dm"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Ebw-Xx-bqf" id="TT3-qM-PKb"/>
+                        <outlet property="topConstraintContainer" destination="rGr-AF-g2b" id="V3P-1x-PYP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnV-Zc-pXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="fQN-HP-lUB">
+                    <connections>
+                        <action selector="up:" destination="zBI-Tc-wpj" id="ZvE-zm-xrb"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="MXP-s1-qmX">
+                    <connections>
+                        <action selector="down:" destination="zBI-Tc-wpj" id="T8Q-n9-md7"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-316" y="58.920539730134934"/>
         </scene>
@@ -76,6 +95,7 @@
                             <constraint firstAttribute="trailing" secondItem="isr-tX-0uG" secondAttribute="trailing" id="o3c-Ac-8cj"/>
                             <constraint firstItem="3hd-JD-PHd" firstAttribute="leading" secondItem="2Kf-IY-nZH" secondAttribute="leading" id="vfu-Xd-bHm"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="4pe-kS-wxI"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETx-Fx-tTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
