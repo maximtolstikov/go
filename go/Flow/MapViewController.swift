@@ -8,7 +8,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var topConstraintContainer: NSLayoutConstraint!
     @IBOutlet var containerManager: ContainerViewManager!
     
-    
+    static var globalRegion = MKCoordinateRegion()
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -22,6 +22,7 @@ class MapViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         containerManager.calculatePositions()
+        MapViewController.globalRegion = mapView.region
     }
     
     override func viewDidAppear(_ animated: Bool) {
