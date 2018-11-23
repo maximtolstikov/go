@@ -48,11 +48,7 @@ extension LocationsListViewController: UITableViewDataSource, UITableViewDelegat
         cell.textLabel?.text = selectedItem.name
         cell.detailTextLabel?.text = (selectedItem.subThoroughfare ?? "") + " " + (selectedItem.thoroughfare ?? "")
         return cell
-       /*
-        cell.textLabel?.text = "Название"
-        cell.detailTextLabel?.text = "Детали"
-        return cell
-        */
+       
     }
     
 }
