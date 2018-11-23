@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		627040B821A86157003CAE0A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627040B721A86157003CAE0A /* LocationService.swift */; };
+		9444222121A88DA50005DA0B /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9444222021A88DA50005DA0B /* RepositoryService.swift */; };
 		94C9E19A21A685AC00C722C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C9E19921A685AC00C722C3 /* AppDelegate.swift */; };
 		94C9E1A121A685AC00C722C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C9E1A021A685AC00C722C3 /* Assets.xcassets */; };
 		94C9E1A421A685AC00C722C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94C9E1A221A685AC00C722C3 /* LaunchScreen.storyboard */; };
@@ -22,6 +23,7 @@
 		023B42B5F7847BEAB4EFDFC5 /* Pods-go.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-go.debug.xcconfig"; path = "Pods/Target Support Files/Pods-go/Pods-go.debug.xcconfig"; sourceTree = "<group>"; };
 		4640DF1D9F35C73BC25D0770 /* Pods_go.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_go.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		627040B721A86157003CAE0A /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		9444222021A88DA50005DA0B /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
 		94C9E19621A685AC00C722C3 /* go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = go.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C9E19921A685AC00C722C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C9E1A021A685AC00C722C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				627040B721A86157003CAE0A /* LocationService.swift */,
+				9444222021A88DA50005DA0B /* RepositoryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				94C9E19A21A685AC00C722C3 /* AppDelegate.swift in Sources */,
 				94C9E1BB21A712A300C722C3 /* MapViewController.swift in Sources */,
 				627040B821A86157003CAE0A /* LocationService.swift in Sources */,
+				9444222121A88DA50005DA0B /* RepositoryService.swift in Sources */,
 				94C9E1C321A72FE700C722C3 /* ContainerViewManager.swift in Sources */,
 				94C9E1BF21A71AB200C722C3 /* LocationsListViewController.swift in Sources */,
 			);

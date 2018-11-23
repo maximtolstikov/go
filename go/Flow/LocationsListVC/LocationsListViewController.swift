@@ -1,5 +1,5 @@
-import UIKit
 import MapKit
+import UIKit
 
 /// Класс котроллера списка точек
 class LocationsListViewController: UIViewController {
@@ -31,8 +31,8 @@ class LocationsListViewController: UIViewController {
 extension LocationsListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
        if isFiltering() { return matchingItems.count } else { return routeItems.count }
-        //return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
