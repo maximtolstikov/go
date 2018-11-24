@@ -8,6 +8,7 @@ class ContainerViewManager: NSObject {
     
     var view: UIView!
     var constraint: NSLayoutConstraint!
+    weak var delegate: BuildRoute?
     
     var top: CGFloat = 0
     var middle: CGFloat = 0
@@ -44,8 +45,12 @@ class ContainerViewManager: NSObject {
             
         } else {
             position = middle
+            // TODO: - Сделать логику что маршрут строится только если таблица опускается сверху к центру.
+            // Сейчас выполняется и когда снизу к центру
+            delegate?.buldRoute()
         }
         
+        // TODO: - Настроить исчезновение клавиатуры если контейнер опускается вниз
         animate(to: position)
         
     }

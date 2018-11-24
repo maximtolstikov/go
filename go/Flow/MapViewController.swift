@@ -10,11 +10,13 @@ class MapViewController: UIViewController {
     
     static var globalRegion = MKCoordinateRegion()
     let locationManager = CLLocationManager()
+    let repository = RepositoryService.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         containerManager.view = self.view
+        containerManager.delegate = self
         containerManager.constraint = topConstraintContainer
         setupLocationManager()
     }
@@ -54,6 +56,19 @@ class MapViewController: UIViewController {
                 heightConstraint: topConstraintContainer.constant)
     }
 }
+
+
+// MARK: - Построение маршрута
+extension MapViewController: BuildRoute {
+    
+    func buldRoute() {
+        
+        let array = repository.read()
+        print("building route from \(array.count) points")
+    }
+    
+}
+
 
 extension MapViewController: UISearchControllerDelegate {
     

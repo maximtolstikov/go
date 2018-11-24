@@ -1,18 +1,19 @@
-import UIKit
 import MapKit
+import UIKit
 
 /// Класс котроллера списка точек
 class LocationsListViewController: UIViewController {
     
     @IBOutlet weak var searchBarView: UIView!
-    
     @IBOutlet weak var tableView: UITableView!
     
     let locationService = LocationService()
+    let repositoryService = RepositoryService.shared
     let placesSearchController = UISearchController(searchResultsController: nil)
     var matchingItems = [MKMapItem]()
-    let routeItems = [MKMapItem]()
-    
+    var routeItems: [MKMapItem] {
+        return repositoryService.read()
+    }
     
     func searchBarIsEmpty() -> Bool {
         //returns true if the text is empty or nil
@@ -24,18 +25,23 @@ class LocationsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupSearchBar()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
 extension LocationsListViewController: UITableViewDataSource, UITableViewDelegate {
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       if isFiltering() { return matchingItems.count } else { return routeItems.count }
-        //return 10
+        
+        if isFiltering() { return matchingItems.count } else { return routeItems.count }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
@@ -47,8 +53,27 @@ extension LocationsListViewController: UITableViewDataSource, UITableViewDelegat
         }
         cell.textLabel?.text = selectedItem.name
         cell.detailTextLabel?.text = (selectedItem.subThoroughfare ?? "") + " " + (selectedItem.thoroughfare ?? "")
+        
         return cell
-       
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let location = matchingItems[indexPath.row]
+        
+        // TODO: - отключить появление алерта когда в таблице точки маршрута
+        let alert = UIAlertController(title: "Добавить?",
+                                      message: location.name,
+                                      preferredStyle: .alert)
+        let save = UIAlertAction(title: "Да", style: .default) { _ in
+            self.repositoryService.create(element: location)
+        }
+        let cancel = UIAlertAction(title: "Нет", style: .cancel, handler: nil)
+        
+        alert.addAction(save)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
 }
@@ -59,7 +84,7 @@ extension LocationsListViewController: UISearchResultsUpdating {
         
         placesSearchController.searchResultsUpdater = self
         placesSearchController.hidesNavigationBarDuringPresentation = false
-        placesSearchController.dimsBackgroundDuringPresentation = true
+        placesSearchController.dimsBackgroundDuringPresentation = false
         
         let searchBar = placesSearchController.searchBar
         searchBar.sizeToFit()
@@ -74,13 +99,14 @@ extension LocationsListViewController: UISearchResultsUpdating {
         
         guard let searchBarText = searchController.searchBar.text else { return }
         
-        locationService.searchLocationforAddress(address: searchBarText, region: MapViewController.globalRegion, completion: {[weak self] resultItems in
+        locationService.searchLocationforAddress(address: searchBarText,
+                                                 region: MapViewController.globalRegion,
+                                                 completion: {[weak self] resultItems in
             if resultItems.count != 0 {
+                
                 self!.matchingItems = resultItems
                 print("Найдено: \(self!.matchingItems.count)")
-                for item in (self!.matchingItems) {
-                    print(item.name!)
-                }
+                
                 self!.tableView.reloadData()
             }
         })
