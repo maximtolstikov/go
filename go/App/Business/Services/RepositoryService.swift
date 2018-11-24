@@ -6,15 +6,26 @@ fileprivate let UDRouteKey = "route"
 /// Реализация хранилища данных на основе UserDefaults
 final class RepositoryService {
     
+    static let shared = RepositoryService()
+    
+    private init() {}
+    
     // MARK: - Fields
     
     private lazy var elements: [MKMapItem] = {
         
-        guard let array = UserDefaults.standard.array(forKey: UDRouteKey) else {
+        guard let data = UserDefaults.standard.data(forKey: UDRouteKey) else {
             return [MKMapItem]()
         }
         
-        return array as! [MKMapItem]
+        do {
+            let array = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [MKMapItem.self], from: data)
+            return array as! [MKMapItem]
+        } catch {
+            print(error)
+            return [MKMapItem]()
+        }
+        
     }()
     
     
@@ -25,7 +36,11 @@ final class RepositoryService {
     }
     
     func create(element: MKMapItem) {
-        elements.append(element)
+        
+        if !elements.contains(element) {
+            elements.append(element)
+        }
+    
         save()
     }
     
@@ -49,6 +64,14 @@ final class RepositoryService {
     
     fileprivate func save() {
         
-        UserDefaults.standard.set(elements, forKey: UDRouteKey)
+        do {
+            let data: Data = try NSKeyedArchiver.archivedData(withRootObject: elements,
+                                                              requiringSecureCoding: false)
+            UserDefaults.standard.set(data, forKey: UDRouteKey)
+            
+        } catch  {
+            print(error.localizedDescription)
+        }
+        
     }
 }
